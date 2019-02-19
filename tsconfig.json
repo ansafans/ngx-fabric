@@ -16,6 +16,14 @@
     "lib": [
       "es2017",
       "dom"
-    ]
+    ],
+    "paths": {
+      "ng-fabricjs": [
+        "dist/ng-fabricjs"
+      ],
+      "ng-fabricjs/*": [
+        "dist/ng-fabricjs/*"
+      ]
+    }
   }
 }

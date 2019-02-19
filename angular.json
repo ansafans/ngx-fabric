@@ -121,6 +121,41 @@
           }
         }
       }
+    },
+    "ng-fabricjs": {
+      "root": "projects/ng-fabricjs",
+      "sourceRoot": "projects/ng-fabricjs/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ng-fabricjs/tsconfig.lib.json",
+            "project": "projects/ng-fabricjs/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ng-fabricjs/src/test.ts",
+            "tsConfig": "projects/ng-fabricjs/tsconfig.spec.json",
+            "karmaConfig": "projects/ng-fabricjs/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ng-fabricjs/tsconfig.lib.json",
+              "projects/ng-fabricjs/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "ng-fabricjs-module"
