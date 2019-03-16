@@ -83,3 +83,16 @@ export interface ImageInterface {
     visible :boolean;
     width :number;
 }
+
+export interface DataURLOptions{
+    format?:string;
+    quality?:number;
+    multiplier?:number;
+    left?:number;
+    top?:number;
+    width?:number;
+    height?:number;
+    enableRetinaScaling?:boolean;
+    withoutTransform?:boolean;
+    withoutShadow?:boolean;
+}
