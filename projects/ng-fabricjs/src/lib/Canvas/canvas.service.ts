@@ -8,6 +8,7 @@ declare const fabric: any;
 })
 export class CanvasService implements OnInit {
 
+  public canvasIns:any=[];
   public canvas:any;
 
   constructor() {}
@@ -19,8 +20,23 @@ export class CanvasService implements OnInit {
    * @param  {any} options?
    * Initialize canvas
    */
-  init(el:any,options?:any){
-    this.canvas=new fabric.Canvas(el,options);
+  // init(el:any,options?:any){
+  //   this.canvas=new fabric.Canvas(el,options);
+  //   this.canvasIns.push(this.canvas);
+  // }
+
+  init(el:any){
+    let canvas=new fabric.Canvas(el);
+    this.canvasIns[el]=canvas;
+    return this.useCanvas(el);
+  }
+
+  getAllCanvas(){
+    return this.canvasIns;
+  }
+
+  useCanvas(canvasId){
+    return this.canvas=this.canvasIns[canvasId];
   }
 
   setOptions(options:CanvasInterface){
@@ -84,7 +100,7 @@ export class CanvasService implements OnInit {
     return this.canvas.absolutePan(point);
   }
 
-  add(...object:any) {
+  add(...object) {
     return this.canvas.add(...object);
   }
 
@@ -97,7 +113,7 @@ export class CanvasService implements OnInit {
   }
 
   calcOffset(){
-    return this.calcOffset();
+    return this.canvas.calcOffset();
   }
 
   calcViewportBoundaries() {
@@ -220,7 +236,7 @@ export class CanvasService implements OnInit {
     return this.canvas.item(index);
   }
 
-  remove(...object:any){
+  remove(...object:any[]){
     return this.canvas.remove(object);
   }
 
@@ -256,11 +272,14 @@ export class CanvasService implements OnInit {
     return this.canvas.setCursor(value);
   }
 
-  setDimensions(dimensions, optionsopt){
+  setDimensions(dimensions:any, optionsopt?:any){
     return this.canvas.setDimensions(dimensions, optionsopt);
   }
 
   setHeight(value, optionsopt?:any){
     return this.canvas.setHeight(value, optionsopt);
   }
+
+  // Customized methods
+  
 }
