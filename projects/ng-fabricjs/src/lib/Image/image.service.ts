@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import 'fabric';
 import { ImageInterface, DataURLOptions } from './image.interface';
+import { CanvasService } from '../Canvas/canvas.service';
 declare const fabric: any;
 
 @Injectable({
@@ -10,7 +11,7 @@ export class ImageService {
 
   public image:any;
 
-  constructor() {}
+  constructor(private canvas:CanvasService) {}
 
   init(element:string, optionsopt?:any, callbackopt?:Function){
     this.image=new fabric.Image(element,optionsopt,callbackopt);
@@ -103,15 +104,18 @@ export class ImageService {
   }
 
   fromElement(element:any, optionsopt?:any, callback?:Function){
-    return this.image.fromElement(element, optionsopt, callback);
+    this.image=new fabric.Image.fromElement(element, optionsopt, callback);
+    return this.image;
   }
 
   fromObject(object:any, callback:Function){
-    return this.image.fromObject(object, callback);
+    this.image=new fabric.Image.fromObject(object, callback);
+    return this.image;
   }
 
-  fromURL(url:string, callbackopt:Function, imgOptionsopt:any){
-    return this.image.fromURL(url, callbackopt, imgOptionsopt);
+  fromURL(url:string, callbackopt?:Function, imgOptionsopt?:any){
+    this.image = new fabric.Image.fromURL(url, callbackopt, imgOptionsopt)
+    return this.image;
   }
 
   _calcRotateMatrix(){
@@ -540,5 +544,27 @@ export class ImageService {
 
   willDrawShadow(){
     return this.image.willDrawShadow();
+  }
+
+  // Customized methods
+  addImageWithUrl(url:string,canvasId:string){
+    let canvas = this.canvas.useCanvas(canvasId);
+    
+    this.fromURL(url,function(img){
+      canvas.add(img);
+    });
+  }
+
+  addImageWithUrls(urls:any[],canvasId:string){
+    let canvas = this.canvas.useCanvas(canvasId);
+    let ins = this;
+    
+    if(urls!=undefined && urls!=[]){
+      urls.forEach(url => {
+        ins.fromURL(url,function(img){
+          canvas.add(img);
+        });
+      });
+    }
   }
 }
