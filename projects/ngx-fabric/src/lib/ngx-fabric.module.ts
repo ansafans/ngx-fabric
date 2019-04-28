@@ -2,4 +2,4 @@ import { NgModule } from '@angular/core';
 
 @NgModule()
 
-export class NgFabricjsModule {}
+export class NgxFabricModule {}
