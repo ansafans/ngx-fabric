@@ -1,6 +1,11 @@
 {
   "name": "ng-fabricjs-module",
   "version": "0.0.0",
+  "author": {
+    "email": "ansafsah@gmail.com",
+    "name": "Mohamed Ansaf"
+  },
+  "license": "MIT",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
