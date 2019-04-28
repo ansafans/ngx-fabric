@@ -14,4 +14,4 @@ export * from './lib/Color/color.service';
 export * from './lib/IText/itext.service';
 export * from './lib/Image/image.service';
 
- export * from './lib/ng-fabricjs.module';
+ export * from './lib/ngx-fabric.module';
