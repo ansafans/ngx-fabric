@@ -1,27 +1,53 @@
-# NgFabricjsModule
+# NGX FABRIC
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.6.
+This Angular library is a perfect wrapper for <a href="http://fabricjs.com/">Fabric Js</a> and it exposed some helper methods for developers.
 
-## Development server
+## Installation
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+```
+npm install ngx-fabric
+```
 
-## Code scaffolding
+## Usage
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+app.module.ts
+```
+import { NgxFabricModule } from 'ngx-fabric';
 
-## Build
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule,
+    NgxFabricModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## API References
 
-## Running unit tests
+**Services**
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+* Canvas
+* Image
+* IText
+* Color
 
-## Running end-to-end tests
+**Interfaces**
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+* CanvasInterface
+* ImageInterface
+* ITextInterface
+* ColorInterface
+
+## License
+
+This project is licensed under the terms of the MIT license.
 
 ## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+If you have ideas for more that should be on this page, <a href="https://github.com/ansafans/ng-fabricjs/issues">let me know</a>
