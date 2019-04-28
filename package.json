@@ -5,6 +5,13 @@
     "email": "ansafsah@gmail.com",
     "name": "Mohamed Ansaf"
   },
+  "keywords": [
+    "fabric",
+    "angular 2",
+    "angular 4",
+    "ngx-fabric",
+    "fabricjs"
+  ],
   "license": "MIT",
   "scripts": {
     "ng": "ng",

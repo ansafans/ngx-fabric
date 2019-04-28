@@ -6,6 +6,13 @@
     "name": "Mohamed Ansaf"
   },
   "license": "MIT",
+  "keywords": [
+    "fabric",
+    "angular 2",
+    "angular 4",
+    "ngx-fabric",
+    "fabricjs"
+  ],
   "peerDependencies": {
     "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
     "@angular/core": "^6.0.0-rc.0 || ^6.0.0"
