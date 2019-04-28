@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { CanvasService } from 'projects/ng-fabricjs/src/lib/Canvas/canvas.service';
-import { ImageService } from 'projects/ng-fabricjs/src/lib/Image/image.service';
-import { ItextService } from 'projects/ng-fabricjs/src/lib/IText/itext.service';
+import { CanvasService } from 'projects/ngx-fabric/src/lib/Canvas/canvas.service';
+import { ImageService } from 'projects/ngx-fabric/src/lib/Image/image.service';
+import { ItextService } from 'projects/ngx-fabric/src/lib/IText/itext.service';
 
 @Component({
   selector: 'app-root',
