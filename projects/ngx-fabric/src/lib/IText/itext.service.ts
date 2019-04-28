@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ITextDimensions, ITextCloneImageOpts } from './itext.interface';
 import 'fabric';
+import { CanvasService } from '../Canvas/canvas.service';
 declare const fabric: any;
 
 @Injectable({
@@ -10,10 +11,13 @@ export class ItextService {
 
   private itext:any;
 
-  constructor() { }
+  constructor(private canvas:CanvasService) { }
 
-  init(text:string,optionsopt?:any){
+  init(text:string,canvasId:string,optionsopt?:any){
     this.itext = new fabric.IText(text, optionsopt);
+    this.canvas.useCanvas(canvasId);
+    this.canvas.add(this.itext);
+    return this.itext;
   }
 
   fromObject(object:any, callbackopt:Function){

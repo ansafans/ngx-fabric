@@ -2,7 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { NgFabricjsModule } from 'projects/ng-fabricjs/src/public_api';
+// import { NgFabricjsModule } from 'projects/ng-fabricjs/src/public_api';
+import { NgFabricjsModule } from '../../dist/ng-fabricjs';
 
 @NgModule({
   declarations: [
@@ -10,7 +11,7 @@ import { NgFabricjsModule } from 'projects/ng-fabricjs/src/public_api';
   ],
   imports: [
     BrowserModule,
-    NgFabricjsModule.forRoot()
+    NgFabricjsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

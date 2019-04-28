@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { CanvasService } from 'projects/ng-fabricjs/src/lib/Canvas/canvas.service';
-import { ImageService } from 'projects/ng-fabricjs/src/lib/Image/image.service';
+import { CanvasService } from 'projects/ngx-fabric/src/lib/Canvas/canvas.service';
+import { ImageService } from 'projects/ngx-fabric/src/lib/Image/image.service';
+import { ItextService } from 'projects/ngx-fabric/src/lib/IText/itext.service';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +14,11 @@ export class AppComponent {
   public canvasEl;
   public canvasEl1;
   public imageEl;
-  constructor(private canvas:CanvasService,private image:ImageService){
+  constructor(
+    private canvas:CanvasService,
+    private image:ImageService,
+    private itext:ItextService
+  ){
     this.canvasEl=this.canvas;
     this.imageEl=this.image;
   }
@@ -63,5 +68,17 @@ export class AppComponent {
     this.image.addImageWithUrl(imgURLs[1],'canvas1');
     // canvas.add(img);
 
+  }
+
+  addText(){
+    // this.itext.init("Hello World","canvas");
+    // this.itext.init("Hello World","canvas1");
+    let text:ItextService= this.itext.init("Hello World","canvas");
+    text.setColor('red');
+    text.setColor('blue');
+  }
+
+  getActive(){
+    console.log(this.canvasEl.getActiveObject());
   }
 }
